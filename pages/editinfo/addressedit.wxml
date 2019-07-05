@@ -1,0 +1,38 @@
+<!--pages/editinfo/addressedit.wxml-->
+<view class="edit-row">
+  <view class="row-inner">
+    <view class="title ff-r fs-17 fc-0">收货人:</view>
+    <input class="ff-r fs-17 fc-0" value="{{name}}" placeholder="请输入姓名" placeholder-style="color:#666; font-size: 30rpx;" maxlength="10" bindinput="bindNameInput"></input>
+  </view>
+</view>
+<view class="edit-row">
+  <view class="row-inner">
+    <view class="title ff-r fs-17 fc-0">手机:</view>
+    <input class="ff-r fs-17 fc-0" value="{{mobile}}" placeholder="请输入收货人手机" placeholder-style="color:#666; font-size: 30rpx;" maxlength="11" bindinput="bindMobileInput"></input>
+  </view>
+</view>
+<view class="edit-row">
+  <view class="row-inner">
+    <view class="title ff-r fs-17 fc-0">所在地区:</view>
+    <picker mode="region" value="{{regionData}}" bind:change="bindRegionChange">
+      <view class="picker ff-r fs-14 fc-0">
+        当前选择： {{regionData[0]}},{{regionData[1]}},{{regionData[2]}}
+        <image src="/images/arrow-right.png"></image>
+      </view>
+    </picker>
+  </view>
+</view>
+<view class="edit-row">
+  <view class="row-inner">
+    <view class="title ff-r fs-17 fc-0">详细地址</view>
+    <input class="ff-r fs-17 fc-0" value="{{detailAddress}}" placeholder="请填写详细地址" placeholder-style="color:#666; font-size: 30rpx;"  bindinput="bindDetailInput"></input>
+  </view>
+</view>
+
+<view class="save-btn">
+  <view class="ff-r fs-18 fc-w bg-theme" bind:tap="saveAddress">保存</view>
+</view>
+
+
+<import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}"/>

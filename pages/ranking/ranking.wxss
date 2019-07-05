@@ -1,0 +1,114 @@
+/* pages/about/about.wxss */
+
+page {
+  background: rgba(241, 241, 241, 1);
+}
+.about_page{
+  margin: 0 10px;
+}
+.first-num {
+  color: #FB6561;
+}
+.two-num {
+  color: #FC9F71;
+}
+.therr-num {
+  color: #67DDA5;
+}
+.swiper-tab{
+    width: 100%;
+    /* border-bottom: 2rpx solid #ccc; */
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    color: #ccc;
+    font-size: 16px;
+}
+.swiper-tab-item{
+    width: 50%; 
+    color:#434343;
+}
+.swiper {
+  height: 420rpx;
+}
+.active{
+    color:#327A08;
+   
+    font-size: 16px;
+    font-weight: bold;
+}
+.activeText {
+    border-bottom: 4rpx solid #327A08;
+    padding-bottom: 16rpx;
+}
+.juzhong{
+  margin: 0 auto;
+}
+.domain{
+  background-color: #fff;
+  height: 100%;
+  margin:0 10px;
+}
+.show{
+  display: block;
+  background: #fff;
+  border-radius:20rpx;
+  font-size: 28rpx;
+}
+
+.list {
+  display: flex;
+  height: 130rpx;
+  line-height: 130rpx;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.list-left {
+  line-height: 130rpx;
+}
+
+.list-centen {
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.list-centen-item {
+  display: inline-block;
+  width:74rpx;
+  height:74rpx;
+  background:rgba(76,125,253,1);
+  border-radius:50%;
+}
+
+.list-right {
+  flex: 0.5;
+}
+.hidden{
+  display: none;
+}
+
+.start-image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.message-title  {
+  border-left: 2px solid #327A08;
+}
+.messsage-box {
+  border-radius:20rpx;
+}
+.msg-img {
+  width: 150rpx;
+  height: 150rpx;
+  top: -5%;
+  right: 0;
+}
+.messsage-conent {
+  height: 85rpx;
+  border-bottom: 1rpx solid #eee;
+}

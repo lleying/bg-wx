@@ -1,0 +1,22 @@
+
+var PrefixZero=function (num){
+  return num < 10 ? '0' + num : num;        //小于10  前面补零
+}
+
+var indexofClass = function (index) {
+  switch (index) {
+    case 1:
+      return 'first-num';
+      break;
+    case 2:
+      return 'two-num';
+      break;
+    case 3:
+      return 'therr-num';
+      break;
+  }
+};
+module.exports = {
+  PrefixZero: PrefixZero,
+  indexofClass: indexofClass
+}

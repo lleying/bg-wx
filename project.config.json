@@ -1,0 +1,176 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.3",
+	"appid": "wx8fad0830be4488be",
+	"projectname": "%E8%8A%B1%E5%9B%AD%E7%AD%94%E9%A2%98",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 19,
+			"list": [
+				{
+					"id": -1,
+					"name": "personalinfo",
+					"pathName": "pages/personalinfo/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "message",
+					"pathName": "pages/message/list",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "模拟点击好友赛邀请进入",
+					"pathName": "pages/home/index",
+					"query": "roomKey=123"
+				},
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ranking/ranking",
+					"pathName": "pages/ranking/ranking",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/rule/rule",
+					"pathName": "pages/rule/rule",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/quizchoose/quizchoose",
+					"pathName": "pages/quizchoose/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/user",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/pairversus/lobby",
+					"pathName": "pages/pairversus/lobby",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/rule/rule",
+					"pathName": "pages/rule/rule",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/messageAdd/messageAdd",
+					"pathName": "pages/messageAdd/messageAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/tierrace/tierselect",
+					"pathName": "pages/tierrace/tierselect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/messageAdd/messageAdd",
+					"pathName": "pages/messageAdd/messageAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/versus/index",
+					"pathName": "pages/versus/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ranking/ranking",
+					"pathName": "pages/ranking/ranking",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ranking/ranking",
+					"pathName": "pages/ranking/ranking",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/testlibrary/list",
+					"pathName": "pages/testlibrary/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/home",
+					"pathName": "pages/quizchoose/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/quizchoose/index",
+					"pathName": "pages/quizchoose/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/messageAdd/messageAdd",
+					"pathName": "pages/messageAdd/messageAdd",
+					"scene": null
+				}
+			]
+		}
+	}
+}

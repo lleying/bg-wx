@@ -1,0 +1,12 @@
+<!--pages/message/detail.wxml-->
+<view class='container'>
+  <view class='title'>{{detail.title}}</view>
+  <view class='time'>{{detail.releaseDate}}</view>
+  <rich-text class='content' type="text" nodes="{{detail.content}}"></rich-text>
+  <!-- <view class='content'>
+      {{detail.content}}
+  </view> -->
+</view>
+
+ <import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />

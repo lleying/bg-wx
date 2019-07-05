@@ -1,0 +1,53 @@
+<!--pages/shop/list.wxml-->
+<view class="tabbar">
+  <view class="tab-item login-prize {{tabShow == 1 ? 'selected' : ''}}" data-tab="1" bind:tap="switchTab">
+    <view class="tab-item-inner {{tabShow == 1 ? 'selected' : ''}} fs-15 fc-1 ff-r">游戏物品</view>
+  </view>
+  <view class="tab-item daily-prize  {{tabShow == 2 ? 'selected' : ''}}" data-tab="2" bind:tap="switchTab">
+    <view class="tab-item-inner {{tabShow == 2 ? 'selected' : ''}} fs-15 fc-1 ff-r">花园道具</view>
+  </view>
+</view>
+<view class="tab1 tab-control-item" wx-if="{{tabShow == 1}}">
+  <view class="notice ff-r fs-20 fc-0">
+    暂无游戏物品，敬请期待
+  </view>
+</view>
+<view class="tab2 tab-control-item" wx:elif="{{tabShow == 2}}">
+  <view class="garden-item" wx:for="{{shopInfo}}" wx:for-item="e" wx:for-index="i" wx:key="{{e.content}}" data-price="{{e.price}}" data-desc="{{e.content}}" data-img="{{e.icon}}" bind:tap="showMask">
+    <view class="item-imagebox">
+      <image src="{{e.shop_icon}}"></image>
+    </view>
+    <view class="item-pricebox">
+      <image src="/images/coin-shop.png"></image>
+      <text class="ff-r fs-13 fc-0">{{e.price}}</text>
+    </view>
+  </view>
+</view>
+<view class="bottom-bar bg-theme">
+  <view class="bottom-box gold-box ff-r fs-15 fc-1">
+    <image src="/images/coin-shop.png"></image>
+    {{gold}}
+  </view>
+  <view class="bottom-box diamond-box ff-r fs-15 fc-1">
+    <image src="/images/diamond-shop.png"></image>
+    {{diamond}}
+  </view>
+</view>
+<view class="page-mask mask-5" id="page-mask" catch:tap="hideMask" wx-if="{{maskShow}}">
+  <view class="detail-showbox">
+    <view class="cross fs-10" id="cross" catch:tap="hideMask">x</view>
+    <view class="item-pic-showbox">
+      <image src="{{currentItem.url}}"></image>
+    </view>
+    <view class="item-cost-showbox">
+      <image src="/images/coin-shop.png"></image>
+      <text class="ff-r fs-16 fc-0">{{currentItem.price}}</text>
+    </view>
+    <view class="item-desc-showbox ff-r fs-13 fc-0">
+      <rich-text type="text" nodes="{{currentItem.desc}}"></rich-text>
+    </view>
+  </view>
+</view>
+
+ <import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />

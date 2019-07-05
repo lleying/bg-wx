@@ -1,0 +1,129 @@
+<view class="header">
+  <image class="header-bg-img" src="/images/home-bg-img.png"></image>
+  <view class="notice-box" data-src="message" bind:tap="navigate2page">
+      <image class="notice-bell" src="/images/noticebell-on.png" wx-if="{{userInfo.messageStatus == 1}}"></image>
+      <image class="notice-bell" src="/images/noticebell.png" wx:else></image>
+  </view>
+  <view class="avatar-box">
+    <image class="avatar-image" src="{{userInfo.headimgurl}}" data-src="personalinfo" bind:tap="navigate2page"></image>
+    <view class="ff-r fs-17 fc-w">{{userInfo.nickname}}</view>
+  </view>
+  <view class="info-wrap" data-src="personalinfo" bind:tap="navigate2page">
+    <view class="garden-level info-box">
+      <image src="/images/garden-level.png"></image>
+      <text class="ff-n fs-15 fc-w">{{userInfo.gardenName}}</text>
+    </view>
+    <view class="exp-level info-box">
+      <image src="/images/exp-level.png"></image>
+      <text class="ff-n fs-15 fc-w">LV {{userInfo.level}}</text>
+    </view>
+    <view class="tier info-box">
+      <image class="trophy-icon" src="/images/trophy.png"></image>
+      <text class="ff-n fs-15 fc-w" wx:if="{{userInfo.danStar < 5 && userInfo.danStar >= 0}}">{{userInfo.danName}}</text>
+      <text class="ff-n fs-15 fc-w" wx:elif="{{userInfo.danStar == -1}}">无段位</text>
+      <view class="ff-n fs-15 fc-w challenger-desc" wx:else>
+        王者
+        <image src="/images/tier-star-full.png"></image>
+        x{{userInfo.danStar}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="option-wrap">
+  <view class="upper">
+    <view class="left">
+      <view class="option-item tier-btn" data-src="quizchoose" bind:tap="navigate2page">
+        <view>
+          <image src="/images/tier-icon.png"></image>
+        </view>
+        <view class="option-title ff-l">成长赛</view>
+      </view>
+      <view class="option-item pairvs-btn" data-src="pair" bind:tap="navigate2page">
+        <view>
+          <image src="/images/pairvs-icon.png"></image>
+        </view>
+        <view class="option-title ff-l">好友对战</view>
+      </view>
+    </view>
+    <view class="right">
+      <view class="option-item shop-btn" data-src="shop" bind:tap="navigate2page">
+        <view>
+          <image src="/images/shop-icon.png" ></image>
+        </view>
+        <view class="option-title ff-n">商</view>
+        <view class="option-title ff-n">城</view>
+      </view>
+    </view>
+  </view>
+  <view class="lower">
+    <view class="option-item">
+      <view class="fc-9 fs-17 ff-l">更多精彩</view>
+      <view class="fc-9 fs-17 ff-l">敬请期待</view>
+    </view>
+    <view class="option-item backpack-btn" data-src="backpack" bind:tap="navigate2page">
+      <image src="/images/backpack-icon.png" class="backpack-icon"></image>
+      <text class="fc-1 fs-20 ff-l">背包</text>
+    </view>
+  </view>
+</view>
+
+<view class="prize-btn {{hasPrize ? 'hasprize' : ''}}" bind:tap="showPrize">
+  <image src="/images/prize-icon.png"></image>
+</view>
+
+<view class="service-btn">
+  <image src="/images/service-icon.png"></image>
+  <button size="default" type="default" hover-class="button-hover" open-type="contact"></button>
+</view>
+
+<view class="prize-wrap bg-theme" wx:if="{{prizeShow}}" id="prizeWrap" bind:tap="closePrize"> 
+  <image src="/images/prize-close.png" id="prizeClose" bind:tap="closePrize"></image>
+  <view class="tabbar">
+    <view class="tab-item login-prize {{prizeTabShow == 1 ? 'selected' : ''}}" data-tab="1" bind:tap="switchTab">
+      <view class="tab-item-inner {{prizeTabShow == 1 ? 'selected' : ''}} fs-15 fc-1 ff-r">登陆奖励</view>
+    </view>
+    <view class="tab-item daily-prize  {{prizeTabShow == 2 ? 'selected' : ''}}" data-tab="2" bind:tap="switchTab">
+      <view class="tab-item-inner {{prizeTabShow == 2 ? 'selected' : ''}} fs-15 fc-1 ff-r">每日任务</view>
+    </view>
+  </view>
+  <view class="tab1 tab-control-item" wx:if="{{prizeTabShow == 1}}">
+    <view class="login-prize-item" wx:for="{{dailyRewardArr}}" wx:for-item="e" wx:for-index="i" wx:key="e.name">
+      <image src="/images/{{i > (loginIndex -1) ? 'login-prize-on.png' : 'login-prize-off.png'}}"></image>
+      <view class="fc-9 fs-11 ff-r">{{e.name}}</view>
+       <view class="accept-btn accept-btn-on ff-r fs-13 fc-w" wx:if="{{loginPrizeArr[i] == 0}}" data-type="LOGIN" bind:tap="takePrize">领取</view>
+       <view class="accept-btn accept-btn-off ff-r fs-13 fc-w" wx:elif="{{loginPrizeArr[i] == 1}}">已领取</view> 
+       <view class="accept-btn accept-btn-off ff-r fs-13 fc-w" wx:elif="{{loginPrizeArr[i] == 2}}">领取</view>   
+    </view>
+  </view>
+  <view class="tab2 tab-control-item" wx:elif="prizeTabShow == 2">
+    <view class="dailyquest-item">
+      <view class="left">
+        <view class="quest-desc ff-r fs-15 fc-1">累计完成3场比赛</view>
+        <view class="quest-award ff-r fs-13 fc-r">奖励100金币</view>
+      </view>
+      <view class="right">
+        <view class="quest-progress ff-r fs-13 fc-6">{{rewardInfo.gameCount > 3 ? 3 : rewardInfo.gameCount}}/3</view>
+        <view class="accept-btn-off ff-r fs-15 fc-w" wx-if="{{gameRewardFlag == 0}}">已领取</view>
+        <view class="accept-btn-off ff-r fs-15 fc-w" wx:elif="{{gameRewardFlag == 1}}">领取</view>
+        <view class="accept-btn-on ff-r fs-15 fc-w" wx:elif="{{gameRewardFlag == 2}}" data-type="GAME" bind:tap="takePrize">领取</view>
+      </view>
+    </view>
+    <view class="dailyquest-item">
+      <view class="left">
+        <view class="quest-desc ff-r fs-15 fc-1">完成1次题库练习</view>
+        <view class="quest-award ff-r fs-13 fc-r">奖励200金币</view>
+      </view>
+      <view class="right">
+        <view class="quest-progress ff-r fs-13 fc-6">{{rewardInfo.practiceCount > 1 ? 1 : rewardInfo.practiceCount}}/1</view>
+        <view class="accept-btn-off ff-r fs-15 fc-w" wx-if="{{practiceRewardFlag == 0}}">已领取</view>
+        <view class="accept-btn-off ff-r fs-15 fc-w" wx-if="{{practiceRewardFlag == 1}}">领取</view>
+        <view class="accept-btn-on ff-r fs-15 fc-w" wx:elif="{{practiceRewardFlag == 2}}" data-type="PRACTICE" bind:tap="takePrize">领取</view>
+      </view>
+    </view>
+  </view>
+  <view class="fc-w fs-17 ff-m notice" wx-if="{{prizeTabShow == 1}}">点击袋子也可以领取每日奖励哦~</view>
+</view>
+
+ <import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />

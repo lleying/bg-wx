@@ -1,0 +1,15 @@
+<!--pages/messageAdd/messageAdd.wxml-->
+<view class="messageAdd-box">
+  <view class="weui-cells weui-cells_after-title pt-30 pl-34 pr-34">
+    <view class="weui-cell weui-cell_input bg-F1">
+      <view class="textarea-wrp">
+        <textarea auto-focus="true" class="weui-input bg-F1 fs-30 pl-30 pt-30 pb-30" name="msgValue" bindinput="msgValueInput"            style="height: 6em" placeholder="请输入留言信息" />
+      </view>
+
+      <view class="right c-999 pr-30 pb-30 ">0/50</view>
+    </view>
+  </view>
+  <view class="btn center mt-50">
+    <text class="btn" bindtap="submint">提交</text>
+  </view>
+</view>

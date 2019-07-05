@@ -1,0 +1,170 @@
+<!--pages/pairversus/lobby.wxml-->
+<view class="lobby-page {{currentPage == 1 ? 'start' : 'hide'}}" >
+  <view class="pairvs-lobby-head bg-theme">
+    <view class="user-box my-info">
+      <image src="{{userData.avatarUrl}}"></image>
+      <view class="ff-r fs-13 fc-w">{{userInfo.nickName}}</view>
+    </view>
+    <image class="vs-icon pt-50" src="/images/vs-icon.png"></image>
+    <view class="user-box rival-info">
+      <image src="{{rivalInfo.head ? rivalInfo.head : '/images/default-avatar.png'}}"></image>
+      <view class="ff-r fs-13 fc-w">{{rivalInfo.nickName ? rivalInfo.nickName : '--'}}</view>
+    </view>
+  </view>
+  
+  <view class="lobby-main">
+    <view class="waiting-animation">
+      <image src="/images/pair-waiting-ring.png"></image>
+      <view class="waiting-text ff-r fs-30 c-327">等待对手加入</view>
+      <view class="waiting-dot-list">
+        <view class="dot dot1"></view>
+        <view class="dot dot2"></view>
+        <view class="dot dot3"></view>
+      </view>
+    </view>
+    <view class="operations-box">
+      <view class="operation-btn leave-btn ff-r fs-30 fc-6" bind:tap="leaveRoom">离开</view>
+      <view class="operation-btn share-btn ff-m fs-30 fc-w bg-E32" >
+      <!-- hidden="{{hideInvite}}" -->
+        邀请
+        <button open-type="share" id="startShare"></button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="start-page {{currentPage == 2 ? 'start' : 'hide'}}">
+  <view class="top-left slidein-block">
+    <image src="/images/enter-self.png" class="topleft-bg"></image>
+    <view class="user-avatar-container">
+        <image class="my-avatar user-avatar" src="{{userInfo.head}}"></image>
+        <view class="ff-r fs-13 fc-w">{{userInfo.nickName}}</view>
+    </view>
+  </view> 
+  <view class="center">
+    <image class="vs-start-icon" src="/images/vs-start-icon.png"></image>
+  </view> 
+  <view class="bottom-right slidein-block">
+    <image src="/images/enter-rival.png" class="bottomright-bg"></image>
+    <view class="user-avatar-container">
+        <image class="my-avatar user-avatar" src="{{rivalInfo.head ? rivalInfo.head : '/images/default-avatar.png'}}"></image>
+        <view class="ff-r fs-13 fc-w">{{rivalInfo.nickName ? rivalInfo.nickName : '--'}}</view>
+    </view>
+  </view>  
+</view>
+
+<view class="versus-page {{currentPage == 3 ? 'start' : 'hide'}}">
+  <view class="libtest-head bg-theme">
+    <view class="user-box">
+      <image src="{{userInfo.head}}"></image>
+      <view class="ff-r fs-13 fc-w">{{userInfo.nickName}}</view>
+    </view>
+    <view class="countdown-box">
+      <view class="countdown-item">
+        <view class="countdown-circle">
+          <view class="countdown-border"></view>
+          <view class="countdown-bg bg-theme"></view>
+          <view class="countdown-mask-container">
+            <view class="countdown-mask mask-left bg-orange {{startRotate ? 'start' : ''}}"></view>
+            <view class="countdown-mask mask-right bg-orange {{startRotate ? 'start' : ''}}"></view>
+            <view class="countdown-mask mask-placeholder bg-theme"></view>
+          </view>
+        </view>
+        <view class="countdown-seconds ff-h fs-19 fc-w bg-theme">{{second}}</view>
+      </view>
+    </view>
+    <view class="rival-box">
+      <image src="{{rivalInfo.head ? rivalInfo.head : '/images/default-avatar.png'}}"></image>
+      <view class="ff-r fs-13 fc-w">{{rivalInfo.nickName ? rivalInfo.nickName : '--'}}</view>
+    </view>
+  </view>
+  <view class="desc">
+    <view class="versus-score">
+      <view class="myscore ff-m fs-17 fc-theme">{{myScore}}</view>
+      <view class="rivalscore ff-m fs-17 fc-orange">{{rivalScore}}</view>
+    </view>
+    <view class="title ff-h fs-24 fc-1 {{fadeIn ? 'fadein' : ''}} ">{{quizData.categoryName}}</view>
+    <!-- <view class="count ff-r fs-12 fc-6 {{fadeIn ? 'fadein' : ''}}">第一题</view> -->
+    <view class="body ff-r fs-14 fc-1  {{fadeIn ? 'fadein' : ''}}">{{quizData.content}}</view>
+  </view>
+
+  <view class="action-area">
+      <view class="progress-bar-box left">
+        <view class="progress-bar bg-theme">
+          <view class="progress-bar-inner">
+            <view class="score-bar bg-orange" style="bottom:{{myBottom}}rpx;"></view>
+          </view>
+        </view>
+      </view>
+      <view class="progress-bar-box right">
+        <view class="progress-bar bg-theme">
+          <view class="progress-bar-inner">
+            <view class="score-bar bg-orange" style="bottom:{{rivalBottom}}rpx;"></view>
+          </view>
+        </view>
+      </view>
+    <view class="options-container {{fadeIn ? 'fadein' : ''}} ">
+      <view wx:for="{{quizData.options}}" wx:for-item="e" wx:for-index="i" class="option-item {{optionsArr[i] == correctAnswer && myChoice == correctAnswer && hasChoose || optionsArr[i] == correctAnswer && bothChoose ? 'correct' : ''}} {{(myChoice != correctAnswer && myChoice == optionsArr[i] && hasChoose) || (rivalChoice != correctAnswer && rivalChoice == optionsArr[i] && bothChoose) ? 'wrong' : ''}} {{(hasChoose && myChoice == optionsArr[i]) || (bothChoose && rivalChoice == optionsArr[i]) ? 'hasChoose' : ''}}" wx:key="e.content" data-option="{{e.content}}" bind:tap="submitAnswer">
+        {{e.introduction}}
+        <view class="result result-self" wx:if="{{correctAnswer && myChoice == optionsArr[i] && hasChoose}}">
+          <image class="correct-icon" src="/images/tick-icon.png" wx:if="{{myChoice == correctAnswer}}"></image>
+          <image class="wrong-icon" src="/images/cross-icon.png" wx:else></image>
+        </view>
+        <view class="result result-rival" wx:if="{{rivalChoice == optionsArr[i] && bothChoose}}">
+          <image class="correct-icon" src="/images/tick-icon.png" wx:if="{{rivalChoice == correctAnswer}}"></image>
+          <image class="wrong-icon" src="/images/cross-icon.png" wx:else></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="result-page {{currentPage == 4 ? 'start' : 'hide'}}">
+   <view class="result-head bg-theme">
+    <view class="user-box my-info">
+      <image src="{{userInfo.head}}"></image>
+      <view class="ff-r fs-13 fc-w">{{userInfo.nickName}}</view>
+    </view>
+    <view class="user-box rival-info">
+      <image src="{{rivalInfo.head ? rivalInfo.head : '/images/default-avatar.png'}}"></image>
+      <view class="ff-r fs-13 fc-w">{{rivalInfo.nickName ? rivalInfo.nickName : '--'}}</view>
+    </view>
+  </view>
+  <view class="result-body">
+    <image class="result-bg-img" src="/images/result-bg-img.png"></image>
+    <view class="result-score">
+      <view class="my-score win ff-m">{{myScore}}</view>
+      <image src='/images/win-img.png' class="result-img win-img" wx-if="{{gameResult == 1}}"></image>
+      <image src='/images/lose-img.png' class="result-img lose-img" wx-if="{{gameResult == 2}}"></image>
+      <image src='/images/even-img.png' class="result-img even-img" wx-if="{{gameResult == 3}}"></image>
+      <view class="rival-score ff-m">{{rivalScore}}</view>
+    </view>
+    <view class="result-reward">
+      <view class="reward-coin">
+        <image class="reward-icon coin-icon" src="/images/coin-big.png"></image>
+        <text class="ff-r fs-15 fc-3">{{goldReward}}</text>
+        <image class="reward-bg reward-bg-yellow" src="/images/reward-bg-yellow.png"></image>
+      </view>
+      <view class="reward-exp">
+        <image class="reward-icon exp-icon" src="/images/exp-icon.png"></image>
+        <text class="ff-r fs-15 fc-3">{{expReward}}</text>
+        <image class="reward-bg reward-bg-green" src="/images/reward-bg-green.png"></image>
+      </view>
+    </view>
+    <view class="result-operation">
+      <view class="continue-btn result-btn ff-m fs-14 fc-6" bind:tap="continueVersus">
+        继续挑战
+      </view>
+      <view class="share-btn result-btn ff-m fs-14 fc-w bg-theme" bind:tap="share">
+        分享成绩
+        <button open-type='share' id="finishShare"></button>
+      </view>
+      <view class="exercise-btn result-btn ff-m fs-14 fc-w" bind:tap="goToLib" hidden="{{gameResult == 1 || gameResult == 3}}">
+        练习一下
+      </view>
+    </view>
+  </view>
+</view>
+
+ <import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />

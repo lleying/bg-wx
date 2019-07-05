@@ -1,0 +1,235 @@
+/* pages/tierrace/tierselect.wxss */
+/*header start*/
+.header {
+  height: 350rpx;
+  width: 100%;
+  padding-top: 70rpx;
+  /* background: url('/images/home-bg.png') no-repeat center/cover; */
+}
+.header .avatar-box {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+.header .avatar-box .avatar-image {
+  height: 120rpx;
+  width: 120rpx;
+  border: 4rpx solid #fff;
+  box-sizing: 4rpx;
+  border-radius: 50%;
+}
+.header .info-wrap {
+  height: 42rpx;
+  display: flex;
+}
+.header .info-wrap .info-box {
+  flex: 0 0 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .info-wrap .info-box > image {
+  margin-right: 10rpx;
+}
+.header .info-wrap .info-box .challenger-desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .info-wrap .info-box .challenger-desc image {
+  width: 35rpx;
+  height: 35rpx;
+  margin: 0 6rpx;
+}
+.header .garden-level image {
+  width: 37rpx;
+  height: 37rpx;
+}
+.header .exp-level image {
+  width: 42rpx;
+  height: 38rpx;
+}
+.header .tier image {
+  width: 32rpx;
+  height: 32rpx;
+}
+/*header end*/
+
+/*tier item bg start*/
+.bronze-tier-bg {
+  background: linear-gradient(#5AD0A2, #7BEEC1);
+}
+.silver-tier-bg {
+  background: linear-gradient(#DCDCDC, #CACACA, #D5D5D5);
+}
+.gold-tier-bg {
+  background: linear-gradient(#F1C366, #FDE4B2);
+}
+.platinum-tier-bg {
+  background: linear-gradient(#FFFFFF, #FFFAEE);
+}
+.diamond-tier-bg {
+  background: linear-gradient(#42AFC9, #ECFBFF);
+}
+.shining-tier-bg,
+.challenger-tier-bg {
+  position: relative;
+}
+.shining-tier-bgimg ,
+.challenger-tier-bgimg {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+/*tier item bg end*/
+
+/*tier list start*/
+.tier-list {
+  padding: 10rpx 30rpx 0;
+}
+.tier-list .tier-item {
+  display: flex;
+  height: 160rpx;
+  padding: 0 34rpx 0 42rpx;
+  align-items: center;
+  border: 1px solid #d1d1d1;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+.tier-list .challenger-tier-bg {
+  margin-bottom: 40rpx;
+}
+.tier-list .challenger-tier-bg.locked {
+  margin-bottom: 0;
+}
+.tier-list .tier-item.locked {
+  margin-top: 32rpx;
+  position: relative;
+}
+.tier-list .tier-item.locked .mask{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .3);
+  border-radius: 10rpx;
+}
+.tier-item.locked .mask image {
+  width: 59rpx;
+  height: 75rpx;
+}
+.tier-list .tier-item .tier-medal {
+  flex: 0 0 100rpx;
+  height: 100rpx;
+  margin-right: 30rpx;
+}
+.tier-list .tier-item .tier-medal image {
+  width: 100%;
+  height: 100%;
+}
+.tier-item .tier-progress {
+  flex: 1;
+  padding-top: 16rpx;
+}
+.tier-item .tier-progress .tier-name {
+  margin-bottom: 12rpx;
+}
+.tier-progress .tier-stars image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 6rpx;
+}
+.tier-item .tier-cost {
+  flex: 0 0 210rpx;
+  text-align: right;
+}
+.tier-item .tier-cost image {
+  margin-left: 10rpx;
+  width: 33rpx;
+  height: 33rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.hasmore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.hasmore image {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+}
+.hasmore image:nth-last-child(2) {
+  margin: 0;
+}
+.hasmore view {
+  margin-top: 40rpx;
+  font-size: 92rpx;
+  line-height: 92rpx;
+}
+/*tier list end*/
+
+/*mask start*/
+.mask-5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mask-5 .lackcoin-dialog {
+  width: 556rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 110rpx 0 46rpx 0;
+  background-color: white;
+  border-radius: 10rpx;
+}
+.mask-5 .lackcoin-dialog .cross {
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  line-height: 80rpx;
+  font-family: consolas;
+  font-weight: 900;
+  
+}
+.mask-5 .lackcoin-dialog .bigcoin-icon-showbox {
+  height: 214rpx;
+  text-align: center;
+  margin-bottom: 66rpx;
+}
+.mask-5 .lackcoin-dialog .bigcoin-icon-showbox image {
+  height: 100%;
+  width: 214rpx;
+}
+.mask-5 .lackcoin-dialog .notice {
+  width: 296rpx;
+  line-height: 48rpx;
+  margin-bottom: 88rpx;
+  text-align: center;
+}
+.mask-5 .lackcoin-dialog .navigate-btn {
+  width: 300rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  border-radius: 36rpx;
+  box-shadow: 4rpx 4rpx 4rpx rgba(0, 0, 0, .26);
+}
+
+
+/*mask end*/

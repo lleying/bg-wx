@@ -1,0 +1,138 @@
+/* 头部 */
+
+page {
+  height: 100%;
+}
+.header-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background-color: #fff;
+  align-items: center;
+  position: relative;
+
+}
+
+.header {
+    margin: 90rpx 0 90rpx 50rpx;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    width: 650rpx;
+    height: 300rpx;
+    line-height: 450rpx;
+}
+
+.header image {
+    width: 300rpx;
+    height: 230rpx;
+}
+.header-bg{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* 名称和头像 */
+.integral-box{
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  /* padding-top: 50rpx; */
+  padding-left: 37rpx;
+  overflow: hidden;
+ 
+}
+.integral {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 300rpx
+}
+.integral-box-left{
+  flex: 0.5;
+
+  /* background: red; */
+}
+.start-box {
+ padding-top: 40rpx;
+}
+.start {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 60rpx;
+  
+  /* justify-content: center; */
+}
+.start-image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.start-text {
+  display: inline-block;
+  font-size: 22rpx;
+  color: #fff;
+  padding-left: 10rpx;
+ 
+}
+.score {
+  padding-top: 8rpx;
+}
+.score-item {
+  width:160rpx;
+  height:40rpx;
+  background:rgba(65,87,51,1);
+  border-radius:20rpx;
+  font-size: 22rpx;
+  color: #fff;
+  padding: 5rpx 20rpx;
+}
+
+.integral-box-centen{
+  flex: 1;
+  /* background: yellow; */
+}
+
+.home-avatar{
+   background-color: #fff;
+  width: 140rpx;
+  height: 140rpx;
+  /* margin: 0 20rpx; */
+  border-radius: 50%;
+}
+
+.text-name {
+  left:30%;
+  top: 30%;
+}
+
+.integral-box-right{
+  bottom: 0;
+  right: 0;
+}
+
+.guize-image{
+  width: 160rpx;
+  height: 60rpx;
+}
+
+
+.centen {
+  display: flex;
+}
+.centen-imgs {
+  width: 300rpx;
+  height: 350rpx;
+}
+.centen-left {
+  flex: 1;
+}
+
+.centen-right {
+  flex: 1;
+}

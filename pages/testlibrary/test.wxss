@@ -1,0 +1,279 @@
+/* pages/testlibrary/test.wxss */
+.libtest-head {
+  width: 100%;
+  height: 220rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.libtest-head .user-box {
+  width: 120rpx;
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx;
+}
+.libtest-head .user-box image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-bottom: 14rpx;
+}
+.libtest-head .user-box view {
+  text-align: center;
+}
+
+/*countdown*/
+.libtest-head .countdown-box {
+  text-align: center;
+}
+.libtest-head .countdown-box .countdown-item{
+  position: relative;
+  width: 88rpx;
+  height: 88rpx;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 24rpx;
+}
+.countdown-item .countdown-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.countdown-item .countdown-border {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 8;
+  border: 2rpx solid white;
+  border-radius: 50%;
+}
+.countdown-item .countdown-bg {
+  width: 100%;
+  height: 100%;
+}
+.countdown-item .countdown-mask-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.countdown-item .countdown-mask {
+  width: 50%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+}
+.countdown-item .mask-left {
+  left: 0;
+  z-index: 2;
+  border-radius: 44rpx 0 0 44rpx;
+  transform-origin: center right;
+}
+.countdown-item .mask-left.start {
+  animation: 5s left-half linear 5s;
+  animation-fill-mode: forwards;
+}
+.countdown-item .mask-right {
+  right: 0;
+  z-index: 4;
+  border-radius: 0 44rpx 44rpx 0;
+  transform-origin: center left;
+}
+.countdown-item .mask-right.start {
+  animation: 5s left-half linear;
+  animation-fill-mode: forwards;
+
+}
+.countdown-item .mask-placeholder {
+  right: 0;
+  z-index: 3;
+}
+
+/*rotate animation*/
+@keyframes left-half {
+  0% {transform: rotate(0)}
+  99% {transform: rotate(180deg); opacity: 1;}
+  100% {opacity: 0;}
+}
+@keyframes right-half {
+  0% {transform: rotate(0)}
+  99% {transform: rotate(180deg); opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.countdown-item .countdown-seconds {
+  width: 68rpx;
+  height: 68rpx;
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 66rpx;
+  text-align: center;
+  border: 2rpx solid white;
+  border-radius: 50%;
+}
+
+/*desc start*/
+.desc {
+  margin-top: 56rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.desc .title {
+  text-align: center;
+  opacity: 0;
+}
+.desc .body {
+  margin-top: 28rpx;
+  line-height: 48rpx;
+  max-width: 530rpx;
+  opacity: 0;
+}
+.desc .title.fadein,
+.desc .count.fadein {
+  animation: .5s fadein linear;
+  animation-fill-mode: forwards;
+}
+.desc .body.fadein {
+  animation: .5s fadein linear .5s;
+  animation-fill-mode: forwards;
+}
+/*fadein animation */
+@keyframes fadein {
+  0% {opacity: 0;}
+  99% {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+.action-area .options-container.fadein {
+  animation: .5s fadein linear 1s;
+  animation-fill-mode: forwards;
+}
+.action-area {
+  width: 100%;
+  padding: 6rpx 60rpx 0;
+  position: fixed;
+  bottom: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*progress bar*/
+.action-area .progress-title {
+  position: absolute;
+  top: 0;
+  left: 47rpx;
+  line-height: 26rpx;
+}
+.action-area .progress-bar {
+  width: 30rpx;
+  height: 570rpx;
+  position: absolute;
+  top: 30rpx;
+  padding: 6rpx 5rpx 5rpx 4rpx;
+  border-radius: 16rpx 16rpx 0 0;
+}
+.action-area .progress-bar.left {
+  left: 60rpx;
+}
+.action-area .progress-bar .progress-bar-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #179262;
+  border-radius: 10rpx 10rpx 0 0;
+  overflow: hidden;
+}
+.progress-bar .progress-bar-inner .score-bar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx 10rpx 0 0;
+  transition: bottom ease-out .3s;
+}
+/*options-container*/
+.action-area .options-container {
+  margin-top: 30rpx;
+  height: 570rpx;
+  text-align: center;
+  opacity: 0;
+}
+.options-container .option-item {
+  margin-top: 20rpx;
+  display: inline-block;
+  width: 442rpx;
+  height: 120rpx;
+  text-align: center;
+  line-height: 118rpx;
+  background-color: #fdfdfd;
+  border: 1px solid #e1e1e1;
+  border-radius: 60rpx;
+  box-shadow: 6rpx 6rpx 4rpx rgba(0, 0, 0, .15);
+  position: relative;
+}
+.options-container .option-item.correct {
+  background-color: #19B377;
+  color: white;
+  border: 0;
+  line-height: 120rpx;
+}
+.options-container .option-item .result {
+  position: absolute;
+  top: 40rpx;
+}
+.options-container .option-item image {
+  width: 36rpx;
+  height: 36rpx;
+}
+.options-container .option-item .result-rival {
+  left: 40rpx;
+}
+.options-container .option-item .result-self {
+  right: 40rpx;
+}
+.options-container .hasChoose.wrong {
+  background-color: #FF6F64;
+  color: white;
+  border: 0;
+  line-height: 120rpx;
+}
+
+
+/*finish-mask start*/
+.finish-mask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.finish-mask .finish-modal {
+  background-color: white;
+  border-radius: 10rpx;
+}
+.finish-mask .finish-modal .fc-3 {
+   padding: 30rpx 60rpx;
+   line-height: 138rpx;
+   box-shadow: 0 2rpx #D2D3D5;
+}
+.finish-mask .finish-modal .operation-box {
+  display: flex;
+  height: 100rpx;
+}
+.finish-modal .operation-box .operation-item {
+  flex: 0 0 50%;
+  height: 100%;
+  line-height: 100rpx;
+}
+.finish-modal .operation-box .operation-item:first-child {
+  box-shadow: 2rpx 0 #D2D3D5;
+}
+/*finish-mask end*/

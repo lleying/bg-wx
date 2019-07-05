@@ -1,0 +1,31 @@
+/* pages/personalinfo/edit.wxss */
+.edit-row {
+  width: 100%;
+  height: 88rpx;
+  padding-left: 30rpx;
+}
+.edit-row .edit-row-inner {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 1px rgba(209, 209, 209, 1);
+}
+.edit-row .edit-row-inner .title {
+  line-height: 87rpx;
+}
+.edit-row .edit-row-inner .arrow {
+  height: 100%;
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.edit-row .edit-row-inner .mobile-showbox {
+  padding-right: 34rpx;
+  line-height: 88rpx;
+}
+.edit-row-inner .arrow image {
+  width: 20rpx;
+  height: 34rpx;
+}

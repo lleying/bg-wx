@@ -1,0 +1,34 @@
+<!--pages/user/user.wxml-->
+<!-- 个人信息 -->
+
+<view class="user-box">
+<!-- header -->
+  <view class="user-header bg-E32 pl-34 pr-34 pb-40">
+      <view class="user-top center pt-68">
+       <image class='user-avatar' src='{{userData.avatarUrl}}'></image>
+      </view>
+      <view class="user-centen center pt-16">
+        <text class="fs-34 c-fff">{{userData.name}} {{userData.dept}}</text>
+      </view>
+      <view class="user-bottom flex mt-44">
+        <view class="user-bottom-left flex1 rel ">
+          <image class='start-image mt-04 abs' src='../../images/startF.png' ></image>
+          <text class='start-text c-fff fs-30 pl-50 fs-30'>内经积分 : {{userData.fakePoint}}分</text>
+        </view>
+        <view class="user-bottom-left flex1 right rel">
+           <image class='start-image2 mt-06 abs' src='../../images/home-trophyF.png'></image>
+           <text class='start-text c-fff fs-30 pl-44 fs-30'>答题积分 :{{userData.truePoint}}分</text>
+        </view>
+      </view>
+  </view>
+  <!-- 技能分析图 -->
+  <view class="user-centen-box center pt-50 pb-50">
+    <image src="../../images/testImg.png" class="testImg"></image>
+  </view>
+
+  <!-- 底部 -->
+  <view class="user-bottom-box flex pl-34 pr-34 pt-30">
+    <image class='user-bottom-avatar' src='../../images/eval-head.png'></image>
+    <view class="flex2 pl-20 fs-28 lh-34">哇哦~都说术有专攻，你咋啥都会呀，能不能别这么优秀！</view>
+  </view>
+</view>

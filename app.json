@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/index/index",
+    "pages/versus/index",
+    "pages/personalinfo/options",
+    "pages/pairversus/lobby",
+    "pages/testlibrary/list",
+    "pages/testlibrary/test",
+    "pages/quizchoose/index",
+    "pages/shop/list",
+    "pages/backpack/list",
+    "pages/message/list",
+    "pages/message/detail",
+    "pages/tierrace/tierselect",
+    "pages/personalinfo/index",
+    "pages/personalinfo/addresslist",
+    "pages/editinfo/bindphone",
+    "pages/editinfo/addressedit",
+    "pages/ranking/ranking",
+    "pages/rule/rule",
+    "pages/user/user",
+    "pages/messageAdd/messageAdd"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0F2900",
+    "navigationBarTitleText": "花园学习",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

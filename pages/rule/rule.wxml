@@ -1,0 +1,13 @@
+<!--pages/rule/rule.wxml-->
+<!-- 竞赛规则 -->
+
+<view class="rule-div pl-34 pr-34">
+  <view class="pt-40 fs-28 lh-46">
+    欢迎参加第一届知识达人大赛，您有一份丰厚奖品等待 领取欢迎参加第一届知识达人大赛，您有一份丰厚奖品 等待领取。
+  </view>
+    <image src="../../images/quizselect-top.png" class="rule-img mt-30 w-100"></image>
+     <view class="pt-40 fs-28 lh-46">
+    欢迎参加第一届知识达人大赛，您有一份丰厚奖品等待 领取欢迎参加第一届知识达人大赛，您有一份丰厚奖品 等待领取。
+  </view>
+    <image src="../../images/home-img-bottom.png" class="rule-img mt-30 w-100"></image>
+</view>

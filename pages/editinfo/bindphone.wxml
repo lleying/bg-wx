@@ -1,0 +1,18 @@
+<!--pages/editinfo/bindphone.wxml-->
+
+<view class="edit-row">
+  <view class="edit-row-inner">
+    <input type="number" value="{{mobile}}" placeholder="请输入手机号" placeholder-style="color: #999; font-size: 34rpx;" maxlength="18" bindinput="mobileBind"></input>
+  </view>
+</view>
+<view class="edit-row">
+  <view class="edit-row-inner">
+    <input  placeholder="请输入验证码" placeholder-style='color: #999; font-size: 34rpx;' maxlength="6" bindinput="codeBind"></input>
+    <view class="get-code ff-r fs-17 fc-theme" bind:tap="sendCode">{{codeMsg}}</view>
+  </view>
+</view>
+<view class="confirm-btn">
+  <view class="ff-r fs-18 fc-w bg-theme" bind:tap="updateMobile">确认</view>
+</view>
+<import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />

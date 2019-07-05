@@ -1,0 +1,149 @@
+/* pages/personalinfo/index.wxss */
+/*header start*/
+page{
+  padding-bottom: 40rpx;
+}
+.header {
+  height: 353rpx;
+  width: 100%;
+  padding-top: 70rpx;
+  position: relative;
+}
+.header .header-bg-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+.header .avatar-box {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+.header .avatar-box .avatar-image {
+  height: 120rpx;
+  width: 120rpx;
+  box-sizing: 4rpx;
+  border:4rpx solid #fff;
+  border-radius: 50%;
+}
+.header .info-wrap {
+  height: 42rpx;
+  display: flex;
+}
+.header .info-wrap .info-box {
+  flex: 0 0 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .info-wrap .info-box > image {
+  margin-right: 10rpx;
+}
+.header .info-wrap .info-box .challenger-desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .info-wrap .info-box .challenger-desc image {
+  width: 35rpx;
+  height: 35rpx;
+  margin: 0 6rpx;
+}
+.header .garden-level image {
+  width: 30rpx;
+  height: 34rpx;
+}
+.header .exp-level image {
+  width: 42rpx;
+  height: 38rpx;
+}
+.header .tier image {
+  width: 32rpx;
+  height: 32rpx;
+}
+/*header end*/
+
+/*championship record start*/
+.championship-record {
+  display: flex;
+  align-items: center;
+  height: 126rpx;
+  box-shadow: 0 1rpx 5px rgba(0, 0, 0, .06);
+}
+.championship-record .championship-record-item {
+  flex: 0 0 20%;
+  border-right: 1px solid #d1d1d1;
+}
+.championship-record .championship-record-item:first-child {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.championship-record .championship-record-item:last-child {
+  border: 0;
+}
+.championship-record .championship-record-item image {
+  width: 28rpx;
+  height: 28rpx;
+  margin-bottom: 14rpx;
+}
+.championship-record-item .championship-stage-name {
+  margin-bottom: 16rpx;
+}
+/*championship record end*/
+/*ability evaluate start*/
+.ability-evaluate {
+  padding: 26rpx 74rpx 40rpx 30rpx;
+  margin-top: 10rpx;
+}
+.ability-evaluate .remark {
+  display: flex;
+  align-items: center;
+  margin-bottom: 44rpx;
+}
+.ability-evaluate .remark image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 26rpx;
+}
+.ability-evaluate .remark view {
+  line-height: 36rpx;
+  width: 20em;
+}
+/*ability evaluate end*/
+.placeholder {
+  width: 100%;
+  height: 20rpx;
+  background-color: #F7F8FE;
+}
+/*table start*/
+.stastics-table {
+  margin-bottom: 28rpx;
+}
+.stastics-table .table-row {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+}
+.stastics-table .table-row:nth-child(2n) {
+  background-color: #F4F4F4;
+}
+.stastics-table .table-row .table-col {
+  flex: 0 0 25%;
+  height: 100%;
+  line-height: 90rpx;
+  text-align: center;
+}
+/*table end*/
+.nomore {
+  text-align: center;
+}
+
+.alibilty-radar{
+  height: 500rpx;
+}

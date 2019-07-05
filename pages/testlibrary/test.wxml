@@ -1,0 +1,61 @@
+<!--pages/testlibrary/test.wxml-->
+<view class="libtest-head bg-theme">
+  <view class="user-box">
+    <image src="{{userInfo.head}}"></image>
+    <view class="ff-r fs-13 fc-w">{{userInfo.nickName}}</view>
+  </view>
+  <view class="countdown-box">
+    <view class="countdown-item">
+      <view class="countdown-circle">
+        <view class="countdown-border"></view>
+        <view class="countdown-bg bg-theme"></view>
+        <view class="countdown-mask-container">
+          <view class="countdown-mask mask-left bg-orange {{startRotate ? 'start' : ''}}"></view>
+          <view class="countdown-mask mask-right bg-orange {{startRotate ? 'start' : ''}}"></view>
+          <view class="countdown-mask mask-placeholder bg-theme"></view>
+        </view>
+      </view>
+      <view class="countdown-seconds ff-h fs-19 fc-w bg-theme">{{second}}</view>
+    </view>
+    <view class="test-progress ff-m fs-24 fc-w">第{{currentIndex}}题</view>
+  </view>
+</view>
+
+<view class="desc">
+  <view class="title ff-h fs-24 fc-1 {{fadeIn ? 'fadein' : ''}} ">{{quizData.categoryName}}</view>
+  <!-- <view class="count ff-r fs-12 fc-6 {{fadeIn ? 'fadein' : ''}}">第一题</view> -->
+  <view class="body ff-r fs-14 fc-1  {{fadeIn ? 'fadein' : ''}}">{{quizData.content}}</view>
+</view>
+
+
+<view class="action-area">
+    <view class="ff-r fs-13 fc-9 progress-title">进度</view>
+    <view class="progress-bar left bg-theme">
+      <view class="progress-bar-inner">
+        <view class="score-bar bg-orange" style="bottom:{{myBottom}}rpx;"></view>
+      </view>
+    </view>
+  <view class="options-container {{fadeIn ? 'fadein' : ''}} ">
+    <view wx:for="{{quizData.options}}" wx:for-item="e" wx:for-index="i" class="option-item {{optionsArr[i] == correctAnswer && hasChoose ? 'correct' : ''}} {{myChoice == correctAnswer && hasChoose ? '' : 'wrong'}} {{hasChoose && myChoice == optionsArr[i] ? 'hasChoose' : ''}}" wx:key="e.content" data-option="{{e.content}}" bind:tap="submitAnswer">
+      {{e.introduction}}
+      <view class="result result-self" wx:if="{{correctAnswer && myChoice == optionsArr[i] && hasChoose}}">
+        <image class="correct-icon" src="/images/tick-icon.png" wx:if="{{myChoice == correctAnswer}}"></image>
+        <image class="wrong-icon" src="/images/cross-icon.png" wx:else></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="finish-mask mask-5" wx:if="{{finishShow}}">
+  <view class="finish-modal">
+    <view class="ff-r fs-18 fc-3 ta-c">您已练习完本题库！</view>
+    <view class="operation-box">
+      <view class="operation-item ta-c fs-18 fc-0 ff-r" data-src="tier" bind:tap="navigate2Page">挑战对手</view>
+      <view class="operation-item ta-c fs-18 fc-0 ff-r" data-src="pratice" bind:tap="navigate2Page">继续学习</view>
+    </view>
+  </view>
+</view>
+
+ <import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />

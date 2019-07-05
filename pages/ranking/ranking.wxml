@@ -1,0 +1,86 @@
+<!--pages/ranking/ranking.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="swiper-tab pt-50 center">
+  <view class="swiper-tab-item {{currentTab==0?'active':''}}">
+    <text class="{{currentTab==0?'activeText':''}}" data-current="0" bindtap="clickTab">竞技排名</text>
+  </view>
+  <view class="swiper-tab-item {{currentTab==1?'active':''}}">
+    <text class="{{currentTab==1?'activeText':''}}" data-current="1" bindtap="clickTab">学习排名</text>
+  </view>
+</view>
+
+<view class="pl-24 pr-24 pt-50 ">
+  <view class="{{currentTab == 0 ? 'show':'hidden'}}">
+    <scroll-view>
+      <view wx:for="{{list}}" wx:key="{{i}}" class="list pl-34 pr-34 ml-10 mr-10" wx:for-index="Gindex">
+        <view class="list-left ">
+          <text class="weui-badge {{filter.indexofClass(Gindex+1)}}">{{filter.PrefixZero(Gindex+1)}}</text>
+        </view>
+        <view class="list-centen pl-20">
+          <image class="list-centen-item " src="{{item.avatarUrl}}"></image>
+          <text class="pl-30"> {{item.name}}</text>
+
+        </view>
+        <view class="list-right center pt-40">
+          <image class='start-image' src='../../images/start-item.png'></image>
+          <view class="pt-10 c-FEA">{{item.truePoint}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    <!-- 留言板 -->
+
+    <view class="pt-50 pb-50 mb-30">
+      <view class="message-title fs-34 pl-24 rel">
+        留言板
+        <image src="../../images/message.png" class="msg-img abs mt-f30" bindtap="goAddMsg"></image>
+      </view> 
+      <view class="messsage-box  bg-fff mt-50 mb-50 pb-50 bg-ccc">
+        <swiper indicator-dots="{{indicatorDots}}" class="swiper pb-50" autoplay="{{autoplay}}" interval="{{interval}}" vertical="{{vertical}}" duration="{{duration}}">
+          <block>
+            <swiper-item>
+              <view class="messsage-conent  flex ml-20 mr-20" wx:for="{{listMsgData}}" wx:key="{{i}}">
+                <view class=" pl-20 fs-26 c-327">{{item.miniUserName}} : </view>
+                <view class="flex2 fs-26 pl-40 text-hide pt-10 pb-10">{{item.message}}</view>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+
+    </view>
+  </view>
+
+
+
+</view>
+<view class="{{currentTab == 1 ? 'show':'hidden'}}">
+  <scroll-view>
+    <view wx:for="{{list}}" wx:key="{{i}}" class="list pl-34 pr-34 ml-10 mr-10" wx:for-index="Gindex">
+      <view class="list-left ">
+        <text class="weui-badge {{filter.indexofClass(Gindex+1)}}">{{filter.PrefixZero(Gindex+1)}}</text>
+      </view>
+      <view class="list-centen pl-20">
+        <image class="list-centen-item " src="{{item.avatarUrl}}"></image>
+        <text class="pl-30"> {{item.name}}</text>
+
+      </view>
+      <view class="list-right center pt-40">
+        <image class='start-image' src='../../images/start-item.png'></image>
+        <view class="pt-10 c-FEA">{{item.truePoint}}</view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 留言板 -->
+  <view class="pt-50 pb-50">
+    <view class="message-title fs-34 pl-24 rel">
+      留言板
+      <image src="../../images/message.png" class="msg-img abs mt-f30" bindtap="goAddMsg"></image>
+    </view>
+    <view class="messsage-box  bg-fff mt-50 ">
+      <view class="messsage-conent  flex ml-20 mr-20" wx:for="{{listMsgData}}" wx:key="{{i}}">
+        <view class=" pl-20 fs-26 c-327">{{item.miniUserName}} : </view>
+        <view class="flex2 fs-26 pl-40 text-hide">{{item.message}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+</view>

@@ -1,0 +1,29 @@
+<!--pages/testlibrary/list.wxml-->
+<view class="page">
+  <view class="lib-scroll" bind:touchmove="moveItem" bind:touchstart="recordStart" bind:touchend="recordEnd" >
+    <view class="lib-scroll-item" wx:for="{{showItems}}" wx:for-index="i" wx:for-item="e" wx:key="{{e.itemId}}" style="left:{{coordArr[i] + deltaX}}rpx; z-index:{{zArr[zArrIndex][i]}};">
+      <view class="title-box ff-m fs-17 c-327">{{e.name}}</view>
+      <view class="image-box">
+        <!-- <image src="/images/quizselect-top.png"></image> -->
+        <image src="/images/banner.png"></image>
+      </view>
+      <view class="desc-box">
+        <view class="done ff-r fs-15 fc-6">
+          已学习：{{e.questionStudyCount }}题
+        </view>
+        <view class="rest ff-m fs-15 fc-1">
+          剩余：{{e.questionRemainCount}}题
+        </view>
+      </view>
+    </view>
+    <view class="scroll-control-left scroll-control-item" data-direction="left" catch:tap="switchLibByTap"></view>
+    <view class="scroll-control-right scroll-control-item" data-direction="right" catch:tap="switchLibByTap"></view>
+  </view>
+
+  <view class="btn-showbox">
+    <view class="ff-r fs-30 fc-w exercise-btn bg-E32" data-questioncount="{{currentQuestionCount}}" data-libid="{{currentLibId}}" data-currentindex="{{id}}" bind:tap="startTest">开始学习</view>
+  </view>
+</view>
+
+ <import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />

@@ -1,0 +1,35 @@
+<!--pages/personalinfo/addresslist.wxml-->
+<block wx-if="{{!addressList.length}}">
+  <view class="empty-box">
+    <image src="/images/address-empty.png"></image>
+    <view class="ff-m fs-18">还没填写地址信息</view>
+  </view>
+  <view class="add-address">
+    <view class="ff-r fs-18 fc-w bg-theme" bind:tap="navigate2Page">添加地址</view>
+  </view>
+</block>
+<block wx:else>
+  <view class="address-list">
+    <view class="address-item" wx:for="{{addressList}}" wx:for-item="e" wx:for-index="i" wx:key="e.id">
+      <view class="top">
+        <text class="name ff-r fs-17 fc-1">{{e.consignee}}</text>
+        <text class="phone ff-r fs-17 fc-1">{{e.mobile}}</text>
+        <image src="/images/trash-bin.png" data-addrid="{{e.adress_id}}" bind:tap="removeAddress"></image>
+      </view>
+      <view class="bottom ff-r fs-13 fc-1">
+        {{e.detailAddress}}
+      </view>
+    </view>
+  </view>
+  <view class="address-operation">
+    <!-- <view class="clear-address">
+      <view class="ff-r fs-18 fc-6" bind:tap="removeAllAddress">清空所有历史地址</view>
+    </view> -->
+    <view class="add-address">
+      <view class="ff-r fs-18 fc-w bg-theme" bind:tap="navigate2Page">添加地址</view>
+    </view>
+  </view>
+</block>
+
+ <import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />

@@ -1,0 +1,42 @@
+/* pages/message/list.wxss */
+page {
+  background-color: #F7F8FE;
+}
+.message-items {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 20rpx 20rpx 30rpx;
+  background-color: white;
+  border-bottom: 1px solid #DEDEDE;
+  position: relative;
+}
+.message-items:last-child {
+  border: 0;
+}
+.message-items:first-child {
+  margin-top: 20rpx;
+}
+.message-items .left {
+  /* flex: 0 0 480rpx; */
+}
+.message-items .left .title {
+  margin-bottom: 20rpx;
+}
+.message-items .right {
+  position: absolute;
+  right: 30rpx;
+  top:30rpx;
+}
+.message-items .right .time {
+  line-height: 134rpx;
+}
+.title{
+    color: #333;
+    font-weight: 600;
+}
+.desc{
+  line-height: 40rpx;
+}
+.list{
+  margin-bottom: 20rpx;
+}

@@ -1,0 +1,31 @@
+/* pages/user/user.wxss */
+
+.user-avatar {
+  width:125rpx;
+  height:125rpx;
+  border-radius:50%;
+
+}
+.start-image {
+  width: 41rpx;
+  height: 37rpx;
+}
+.start-image2 {
+  width: 30rpx;
+  height: 32rpx
+}
+
+.testImg {
+  width: 500rpx;
+  height: 500rpx;
+}
+.user-bottom {
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.user-bottom-avatar {
+  width:80rpx;
+  height:80rpx;
+  border-radius:50%;
+}

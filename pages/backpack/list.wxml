@@ -1,0 +1,53 @@
+<!--pages/backpack/list.wxml-->
+<view class="infobox">
+  <view class="avatar-box">
+    <image src="{{userInfo.head}}"></image>
+    <view class="username ff-r fs-13 fc-w">{{userInfo.nickName}}</view>
+  </view>
+  <view class="wealth-showbox">
+    <view class="coin-box">
+      <image src="/images/coin-bg.png"></image>
+      <view class='coin-num ff-h fs-13 fc-w'>{{gold}}</view>
+    </view>
+    <view class="diamond-box">
+      <image src="/images/dia-bg.png"></image>
+      <view class="dia-num ff-h fs-13 fc-w">{{diamond}}</view>
+    </view>
+  </view>
+</view>
+<view class="wrap">
+  <view class="tabbar">
+    <view class="tab-item login-prize {{tabShow == 1 ? 'selected' : ''}}" data-tab="1" bind:tap="switchTab">
+      <view class="tab-item-inner {{tabShow == 1 ? 'selected' : ''}} fs-15 fc-1 ff-r">游戏物品</view>
+    </view>
+    <view class="tab-item daily-prize  {{tabShow == 2 ? 'selected' : ''}}" data-tab="2" bind:tap="switchTab">
+      <view class="tab-item-inner {{tabShow == 2 ? 'selected' : ''}} fs-15 fc-1 ff-r">花园物品</view>
+    </view>
+  </view>
+  <view class="tab1 tab-control-item" wx-if="{{tabShow == 1}}">
+    <view class="mask">
+      <view class="tobecontinue ff-r fs-20 fc-w">暂无游戏道具，敬请期待</view>
+    </view>
+  </view>
+  <view class="tab2 tab-control-item" wx:elif="{{tabShow == 2}}">
+    <view class="garden-item" data-desc="{{e.remark}}" data-img="{{e.icon}}" bind:tap="showMask" wx:for="{{bagInfo}}" wx:for-item="e" wx:for-index="i" wx:key="{{e.desc}}">
+      <view class="garden-item-imagebox">
+        <image src="{{e.icon}}" ></image>
+      </view>
+      <view class="fc-3 fs-13 ff-r garden-item-name">{{e.name}}x<text class="garden-item-count">{{e.quantity}}</text></view>
+    </view>
+  </view>
+</view>
+<view class="page-mask mask-5" id="page-mask" catch:tap="hideMask" wx-if="{{maskShow}}">
+  <view class="detail-showbox">
+    <view class="cross fs-10" id="cross" catch:tap="hideMask">x</view>
+    <view class="item-pic-showbox">
+      <image src="{{currentItem.url}}"></image>
+    </view>
+    <view class="item-desc-showbox ff-r fs-13 fc-0">
+      <rich-text type="text" nodes="{{currentItem.desc}}"></rich-text>
+    </view>
+  </view>
+</view>
+ <import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />

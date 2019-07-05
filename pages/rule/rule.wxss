@@ -1,0 +1,6 @@
+/* pages/rule/rule.wxss */
+
+
+.rule-img {
+  height: 300rpx;
+}

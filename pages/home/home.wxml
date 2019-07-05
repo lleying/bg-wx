@@ -1,0 +1,77 @@
+<view wx:if="{{isHide}}">
+    <view wx:if="{{canIUse}}" >
+        <view class='header'>
+            <image src='../../images/wx_logo.jpg'></image>
+        </view>
+
+        <view class='content'>
+            <view class="center">申请获取以下权限</view>
+            <view class="center pt-30 pb-30">获得你的公开信息(昵称，头像等)</view>
+        </view>
+
+        <button class='bottom ml-34 mr-34 mt-40' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+            授权登录
+        </button>
+    </view>
+    <view wx:else>请升级微信版本</view>
+</view>
+
+
+
+<view class="header-container" wx:else>
+  <image class='header-bg' src='../../images/home-bg.png'></image>
+  <view class='integral-box'>
+    <view class='integral rel'>
+      <view class='integral-box-left'>
+        <!-- 积分 -->
+        <view class='start-box'>
+          <view class='start'>
+            <image class='start-image' src='../../images/start.png'></image>
+            <text class='start-text'>内经积分</text>
+          </view>
+          <!-- 分数 -->
+
+          <view class='score'>
+            <text class='score-item'>{{userData.fakePoint}}分</text>
+          </view>
+          <!-- 奖杯 -->
+          <view class='start trophy pt-18'>
+            <image class='start-image' src='../../images/home-trophy.png'></image>
+            <text class='start-text'>答题积分</text>
+          </view>
+          <!-- 分数 -->
+
+          <view class='score '>
+            <text class='score-item'>{{userData.truePoint}}分</text>
+          </view>
+        </view>
+      </view>
+      <view class='integral-box-centen'>
+        <view class='rel' bind:tap="goUser">
+          <image class='home-avatar' src='{{userData.avatarUrl}}'></image>
+          <view class='abs text-name pl-10'>
+            <text class='fsl-24 c-fff block pl-04'>{{userData.name}}</text>
+            <text class='fsl-24 c-fff block pt-10 '>{{userData.dept}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='integral-box-right right abs' data-src="rule" bind:tap="navigate2page">
+        <image class='guize-image' src='../../images/guize.png'></image>
+      </view>
+    </view>
+    <view class='centen pt-68 pr-24'>
+      <view class='centen-left center'   data-src="quizchoose" bind:tap="navigate2page">
+        <image src='../../images/home-imgs-right.png' class=' centen-imgs'></image>
+      </view>
+      <view class='centen-right center'   data-src="pair" bind:tap="navigate2page" >
+        <image src='../../images/home-img-left.png' class='centen-imgs'></image>
+      </view>
+    </view>
+
+    <view class='pt-40 pr-42 pl-20' data-src="ranking" bind:tap="navigate2page">
+      <image src='../../images/home-img-bottom.png' class='w-100 centen-imgs'></image>
+    </view>
+
+  </view>
+
+</view>

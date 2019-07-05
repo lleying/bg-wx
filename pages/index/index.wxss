@@ -1,0 +1,368 @@
+/*header start*/
+.header {
+  height: 353rpx;
+  width: 100%;
+  padding-top: 60rpx;
+  position: relative;
+  /* background: url('/images/home-bg.png') no-repeat center/cover; */
+}
+.header .header-bg-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+.header .notice-box {
+  position: absolute;
+  top: 42rpx;
+  right: 54rpx;
+  width: 38rpx;
+  height: 46rpx;
+}
+.header .notice-box .notice-bell {
+  width: 100%;
+  height: 100%;
+}
+.header .avatar-box {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+.header .avatar-box .avatar-image {
+  height: 120rpx;
+  width: 120rpx;
+  box-sizing: 4rpx;
+  border: 4rpx solid #fff;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+}
+.header .info-wrap {
+  height: 42rpx;
+  display: flex;
+}
+.header .info-wrap .info-box {
+  flex: 0 0 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .info-wrap .info-box > image {
+  margin-right: 10rpx;
+}
+.header .info-wrap .info-box .challenger-desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .info-wrap .info-box .challenger-desc image {
+  width: 35rpx;
+  height: 35rpx;
+  margin: 0 6rpx;
+}
+.header .garden-level image {
+  width: 30rpx;
+  height: 34rpx;
+}
+.header .exp-level image {
+  width: 42rpx;
+  height: 38rpx;
+}
+.header .tier image {
+  width: 32rpx;
+  height: 32rpx;
+}
+/*header end*/
+/*option-wrap start*/
+.option-wrap {
+  box-sizing: border-box;
+  padding: 20rpx 30rpx 0 30rpx;
+}
+.option-wrap .option-item {
+  border: 1px solid #e1e1e1;
+  border-radius: 20rpx;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.option-wrap .optiosn-title {
+  font-size: 40rpx;
+  color: #001;
+}
+.option-wrap .upper {
+  margin-bottom: 20rpx;
+  display: flex;
+}
+.option-wrap .upper .left {
+  margin-right: 20rpx;
+}
+.option-wrap .upper .tier-btn,
+.option-wrap .upper .pairvs-btn {
+  width: 400rpx;
+  height: 260rpx;
+}
+.option-wrap .upper .tier-btn {
+  margin-bottom: 20rpx;
+}
+.option-wrap .upper .tier-btn image {
+  width: 88rpx;
+  height: 59rpx;
+  position: relative;
+  left: 8rpx;
+}
+.option-wrap .upper .shop-btn {
+  width: 270rpx;
+  height: 540rpx;
+}
+.option-wrap .upper .shop-btn image {
+  width: 76rpx;
+  height: 48rpx;
+  position: relative;
+  left: 8rpx;
+}
+.option-wrap .upper .pairvs-btn image {
+  width: 95rpx;
+  height: 52rpx;
+  position: relative;
+  left: 8rpx;
+}
+.option-wrap .lower {
+  display: flex;
+}
+.option-wrap .lower .option-item:first-child {
+  width: 270rpx;
+  height: 260rpx;
+}
+.option-wrap .lower .option-item:first-child .fc-9 {
+  line-height: 50rpx;
+}
+.option-wrap .lower .backpack-btn {
+  flex-direction: row;
+  width: 400rpx;
+  height: 260rpx;
+  margin-left: 20rpx;
+}
+.option-wrap .lower .backpack-btn .backpack-icon {
+  width: 90rpx;
+  height: 62rpx;
+}
+/*option-wrap start*/
+/*btns start*/
+.prize-btn {
+  position: fixed;
+  left: 26rpx;
+  bottom: 268rpx;
+  width: 126rpx;
+  height: 131rpx;
+}
+.prize-btn.hasprize:after {
+  content: '';
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  background-color: red;
+
+}
+.prize-btn image {
+  width: 100%;
+  height: 100%;
+}
+.service-btn {
+  width: 240rpx;
+  height: 130rpx;
+  position: fixed;
+  right: 0;
+  bottom: 214rpx;
+}
+.service-btn image {
+  width: 100%;
+  height: 100%;
+}
+.service-btn button {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+/*btns start*/
+
+.prize-wrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 100rpx 30rpx 0;
+  z-index: 9;
+}
+.prize-wrap #prizeClose {
+  width: 63rpx;
+  height: 63rpx;
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+}
+/*tabbar start*/
+.tabbar {
+  height: 68rpx;
+  display: flex;
+  justify-content: center;
+}
+.tabbar .tab-item {
+  flex: 0 0 240rpx;
+  height: 100%;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.wrap .tabbar .tab-item.selected {
+  border: 0;
+}
+.tabbar .tab-item:first-child {
+  border-top-left-radius: 20rpx;
+  border-right: 1px solid #d1d1d1;
+  border-bottom: 1px solid #d1d1d1;
+}
+.tabbar .tab-item:nth-child(2) {
+  border-top-right-radius: 20rpx;
+  border-left: 1px solid #d1d1d1;
+  border-bottom: 1px solid #d1d1d1;
+}
+.tabbar .tab-item .tab-item-inner {
+  width: 120rpx;
+  height: 100%;
+  line-height: 64rpx;
+}
+.tabbar .tab-item .tab-item-inner.selected {
+  color: #19B377;
+  border-bottom: 2px solid #19B377;
+}
+/*tabbar end*/
+
+/*tab-control-item global*/
+.tab-control-item {
+  background-color: white;
+  border-radius: 20rpx;
+}
+
+.notice {
+  margin-top: 34rpx;
+  text-align: center;
+}
+.quiz-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 68rpx;
+}
+.quiz-btn {
+  flex: 0 0 372rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 4rpx;
+}
+/*tab1 start*/
+.tab1 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 6rpx 30rpx 60rpx;
+}
+.tab1 .accept-btn {
+  margin-top: 20rpx;
+}
+.tab1 .accept-btn-off {
+  display: inline-block;
+  width: 100rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background-color: #c9c9c9;
+  border-radius: 4rpx;
+}
+.tab1 .accept-btn-on {
+  display: inline-block;
+  width: 100rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background-color: #19B377;
+  border-radius: 4rpx;
+}
+.tab1 .login-prize-item {
+  margin-top: 84rpx;
+  width: 130rpx;
+  text-align: center;
+  margin-right: 36rpx;
+}
+.tab1 .login-prize-item:first-child {
+  margin-left: 40rpx;
+}
+.tab1 .login-prize-item:nth-child(-n+2) {
+  margin-right: 80rpx;
+}
+.tab1 .login-prize-item:nth-child(-n+2) {
+  margin-right: 80rpx;
+}
+.tab1 .login-prize-item:last-child {
+  margin-right: 0;
+}
+.tab1 .login-prize-item image {
+  width: 100%;
+  height: 130rpx;
+}
+.tab1 .fs-11 {
+  text-align: center;
+}
+/*tab1 end*/
+/*tab2 start*/
+.tab2 {
+  padding: 10rpx 32rpx 0;
+}
+.tab2 .dailyquest-item {
+  padding: 34rpx 0 46rpx 8rpx;
+  border-bottom: 1px solid #d1d1d1;
+  display: flex;
+  justify-content: space-between;
+}
+.tab2 .dailyquest-item:last-child {
+  border: 0;
+}
+.tab2 .left .quest-desc {
+  margin-bottom: 34rpx;
+}
+.tab2 .right {
+  flex: 0 0 120rpx;
+}
+.tab2 .right .quest-progress {
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+.tab2 .right .accept-btn-on {
+  display: inline-block;
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background-color: #19B377;
+  border-radius: 4rpx;
+}
+.tab2 .right .accept-btn-off {
+  display: inline-block;
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background-color: #c9c9c9;
+  border-radius: 4rpx;
+}
+/*tab2 end*/

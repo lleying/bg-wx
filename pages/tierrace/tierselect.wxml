@@ -1,0 +1,85 @@
+<!--pages/tierrace/tierselect.wxml-->
+<view class="header bg-theme">
+  <view class="avatar-box">
+    <image class="avatar-image" src="{{userData.avatarUrl}}"></image>
+    <view class="ff-r fs-17 fc-w">{{userInfo.nickname}}</view>
+  </view>
+  <view class="info-wrap clearfix">
+    <view class="garden-level info-box">
+      <image src="/images/gold-green.png"></image>
+      <text class="ff-n fs-15 fc-w">{{userInfo.gardenGold}}</text>
+    </view>
+    <view class="exp-level info-box">
+      <image src="/images/exp-level.png"></image>
+      <text class="ff-n fs-15 fc-w">LV {{userInfo.level}}</text>
+    </view>
+    <view class="tier info-box">
+      <image class="trophy-icon" src="/images/trophy.png"></image>
+      <text class="ff-n fs-15 fc-w" wx:if="{{userInfo.danStar < 5 && userInfo.danStar >= 0}}">{{userInfo.danName}}</text>
+      <text class="ff-n fs-15 fc-w" wx:elif="{{userInfo.danStar == -1}}">无段位</text>
+      <view class="ff-n fs-15 fc-w challenger-desc" wx:else>
+        王者
+        <image src="/images/tier-star-full.png"></image>
+        x{{userInfo.danStar}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="tier-list">
+  <view class="tier-item {{e.danName}}-tier-bg {{dan < 6 && dan + 1 == i ? 'locked' : ''}}" wx:for="{{danArr}}" wx:for-item="e" wx:for-index="i" wx:key="{{e.danName}}" wx:if="{{dan + 1 >= i}}" data-cost="{{e.danCost}}" data-danlevel="{{e.danLevel}}" bind:tap="enterMatch">
+    <view class="mask" wx:if="{{dan < 6 && dan + 1 == i}}">
+      <image src="/images/lock-icon.png"></image>
+    </view>
+    <image class="{{e.danName}}-tier-bgimg" src="{{e.danbg}}" wx:if="{{dan >= 5 && i >= 5}}"></image>
+    <view class="tier-medal">
+      <image src="/images/{{e.danName}}-medal.png"></image>
+    </view>
+    <view class="tier-progress">
+      <view class="tier-name ff-m fs-15 fc-3">{{e.danChinese}}</view>
+      <block wx:if="{{e.danName == 'challenger' && currentDanStar > 5}}">
+        <view class="tier-stars ff-m fs-15 fc-3">
+          胜场：{{currentDanStar}}
+        </view>
+      </block>
+      <block wx:else>
+        <view class="tier-stars ff-m fs-15 fc-3">
+          <block wx:if="{{i < dan}}">
+            <image src="/images/tier-star-full.png" wx:for="{{e.danStars}}" wx:for-item="fStar" wx:key="{{fStar.index}}"></image>
+          </block>
+          <block wx:elif="{{i == dan}}">
+            <image src="{{cStar.src}}" wx:for="{{currentDanStar}}" wx:for-item="cStar" wx:key="{{cStar.index}}"></image>
+          </block>
+          <block wx:elif="{{i == dan + 1}}">
+            <image src="/images/tier-star-empty.png" wx:for="{{e.danStars}}" wx:for-item="eStar" wx:key="{{eStar.index}}"></image>
+          </block>
+        </view>
+      </block>
+    </view>
+    <view class="tier-cost">
+      <text class="ff-m fs-15 fc-3">消耗：{{e.danCost}}</text>
+      <image src="/images/coin-small.png"></image>
+    </view>
+  </view> 
+  <view class="hasmore" wx:if="{{dan < 6}}">
+    <image src="/images/dot-1.png"></image>
+    <image src="/images/dot-2.png"></image>
+    <image src="/images/dot-3.png"></image>
+    <view class="ff-h fc-theme">?</view>
+  </view>
+</view> 
+
+<view class="mask-5" id="lackcoin-dialog" bind:tap="hideMask" wx-if="{{maskShow}}">
+  <view class="lackcoin-dialog">
+    <view class="cross" id="cross">x</view>
+    <view class="bigcoin-icon-showbox">
+      <image src="/images/coin-big.png"></image>
+    </view>
+    <view class="notice ff-m fs-15 fc-3">金币不足！请前往花园获取更多金币</view>
+    <view class="navigate-btn bg-theme ff-m fs-15 fc-w">立即前往</view>
+  </view>
+</view>
+
+
+ <import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />

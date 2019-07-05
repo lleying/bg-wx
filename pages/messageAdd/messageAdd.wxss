@@ -1,0 +1,18 @@
+/* pages/messageAdd/messageAdd.wxss */
+
+.weui-input {
+  height: 300rpx;
+}
+
+.btn {
+  display: block;
+  width:377rpx;
+  height:90rpx;
+  color: #fff;
+  margin: 0 auto;
+  line-height: 90rpx;
+  background:rgba(50,122,8,1);
+  box-shadow:0rpx 5rpx 4rpx 0rpx rgba(0, 0, 0, 0.15);
+  border-radius:45rpx;
+
+}

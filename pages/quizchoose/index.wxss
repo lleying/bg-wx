@@ -1,0 +1,64 @@
+/* pages/quizchoose/index.wxss */
+.top-image {
+  width: 100%;
+  height: 368rpx;
+  /* margin-bottom: 20rpx; */
+}
+.placeholder {
+  width: 100%;
+  height: 20rpx;
+  background-color: #F7F8FE;
+}
+.options-area {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 6rpx 6rpx rgba(0, 0, 0, .06);
+}
+.options-area .tier, .options-area .testlibrary {
+  flex: 0 0 50%;
+  height: 379rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.options-area .tier {
+  border-right: 1rpx solid #eee;
+}
+.options-area .tier image {
+  margin-bottom: 34rpx;
+  width: 98rpx;
+  height: 90rpx;
+}
+.options-area .testlibrary image {
+  margin-bottom: 34rpx;
+  width: 91rpx;
+  height: 99rpx;
+}
+.options-area .testlibrary view {
+  color: #4AB4FF;
+}
+
+.rule-intro {
+  padding: 30rpx 30rpx 0;
+}
+.rule-intro .title {
+  padding-left: 16rpx;
+  position: relative;
+  margin-bottom: 28rpx;
+}
+.rule-intro .title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4rpx;
+  background-color: #000;
+}
+.rule-intro .rule-content {
+  line-height: 48rpx;
+}
+.rule-intro .rule-content+.rule-content {
+  margin-top: 30rpx;
+}

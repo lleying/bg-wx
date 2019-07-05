@@ -1,0 +1,92 @@
+/* pages/testlibrary/list.wxss */
+/*scroll-box global start*/
+.page {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+.lib-scroll {
+  height: 750rpx;
+  margin-top: 140rpx;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 120rpx;
+}
+.lib-scroll .lib-scroll-item {
+  width: 580rpx;
+  height: 700rpx;
+  position: absolute;
+  background-color: white;
+  border: 2rpx solid #d1d1d1;
+  border-radius: 10rpx;
+  box-shadow: 20rpx 20rpx 14rpx rgba(0, 0, 0, .1);
+}
+.lib-scroll .lib-scroll-item:first-child {
+  top: 0;
+}
+.lib-scroll .lib-scroll-item:nth-child(2) {
+  top: 46rpx;
+}
+.lib-scroll .lib-scroll-item:nth-child(3) {
+  top: 0;
+}
+.lib-scroll .scroll-control-item {
+  position: absolute;
+  width: 85rpx;
+  height: 100%;
+  top: 0;
+  z-index: 5;
+}
+.lib-scroll .scroll-control-left {
+  left: 0;
+}
+.lib-scroll .scroll-control-right {
+  right: 0;
+}
+/*scroll-box global end*/
+
+/*scroll-item start*/
+.lib-scroll-item .title-box {
+  width: 100%;
+  height: 132rpx;
+  line-height: 132rpx;
+  text-align: center;
+}
+.lib-scroll-item .image-box {
+  width: 100%;
+  height: 400rpx;
+}
+.lib-scroll-item .image-box image {
+  width: 100%;
+  height: 100%;
+}
+.lib-scroll-item .desc-box {
+  width: 100%;
+  height: 172rpx;
+  display: flex;
+  align-items: center;
+}
+.lib-scroll-item .desc-box .done,
+.lib-scroll-item .desc-box .rest {
+  flex: 0 0 50%;
+  text-align: center;
+}
+/*scroll-item end*/
+
+
+/*btn start */
+.btn-showbox {
+  display: flex;
+  justify-content: center;
+}
+.exercise-btn {
+  width: 380rpx;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  border-radius: 46rpx;
+  box-shadow: 6rpx 6rpx 4rpx rgba(0, 0, 0, .15);
+}
+/*btn end*/

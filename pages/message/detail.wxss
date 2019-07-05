@@ -1,0 +1,23 @@
+/* pages/message/detail.wxss */
+.container{
+  padding: 40rpx;
+}
+.title{
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.time{
+  color: #333;
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.content{
+  margin-top: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}

@@ -1,0 +1,21 @@
+<!--pages/quizchoose/index.wxml-->
+<image src="/images/quizselect-top.png" class="top-image"></image>
+<view class="placeholder"></view>
+<view class="options-area">
+  <view class="tier" data-src="tier" bind:tap="nevigatePage">
+    <image src="/images/growth-icon.png"></image>
+    <view class="ff-m fs-40 fc-theme c-327">随堂测验</view>
+  </view>
+  <view class="testlibrary" data-src="testlibrary" bind:tap="nevigatePage">
+    <image src="/images/testlibrary-icon.png"></image>
+    <view class="ff-m fs-40 c-1DD ">题库练习</view>
+  </view>
+</view>
+<view class="rule-intro">
+  <view class="title ff-r fs-17 fc-1">规则介绍</view>
+  <rich-text class="rule-content ff-r fs-13 fc-6" type="text" nodes="{{ruleContent}}"></rich-text>
+  <!-- <view class="rule-content ff-r fs-13 fc-6">{{ruleContent}}</view> -->
+</view>
+
+ <import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />

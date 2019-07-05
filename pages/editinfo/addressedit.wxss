@@ -1,0 +1,56 @@
+/* pages/editinfo/addressedit.wxss */
+.edit-row {
+  width: 100%;
+  height: 88rpx;
+  padding-left: 32rpx;
+}
+.edit-row .row-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 2rpx #d1d1d1;
+}
+.edit-row .row-inner .title {
+  flex: 0 0 160rpx;
+  height: 100%;
+  line-height: 88rpx;
+  text-align: left;
+}
+.edit-row .row-inner input {
+  flex: 1;
+  height: 100%;
+  line-height: 88rpx;
+  text-align: right;
+  padding-right: 76rpx;
+}
+.edit-row .row-inner .picker {
+  flex: 1;
+  text-align: right;
+  line-height: 88rpx;
+  padding-right: 76rpx;
+  position: relative;
+  max-width: 560rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.edit-row .row-inner .picker image {
+  position: absolute;
+  top: 30rpx;
+  right: 34rpx;
+  width: 19rpx;
+  height: 28rpx;
+}
+.save-btn {
+  margin-top: 100rpx;
+  width: 100%;
+  height: 88rpx;
+  padding: 0 30rpx;
+}
+.save-btn view {
+  width: 100%;
+  height: 100%;
+  line-height: 88rpx;
+  text-align: center;
+}

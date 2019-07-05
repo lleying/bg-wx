@@ -1,0 +1,75 @@
+<!--pages/personalinfo/index.wxml-->
+<view class="header">
+  <image class="header-bg-img" src="/images/home-bg-img.png"></image>
+  <view class="avatar-box">
+    <image class="avatar-image" src="{{userInfo.headimgurl}}" bind:tap="navigate2Options"></image>
+    <view class="ff-r fs-17 fc-w">{{userInfo.nickname}}</view>
+  </view>
+  <view class="info-wrap clearfix">
+    <view class="garden-level info-box">
+      <image src="/images/garden-level.png"></image>
+      <text class="ff-n fs-15 fc-w">{{userInfo.gardenName}}</text>
+    </view>
+    <view class="exp-level info-box">
+      <image src="/images/exp-level.png"></image>
+      <text class="ff-n fs-15 fc-w">Lv {{userInfo.level}}</text>
+    </view>
+    <view class="tier info-box">
+      <image class="trophy-icon" src="/images/trophy.png"></image>
+      <text class="ff-n fs-15 fc-w" wx:if="{{userInfo.danStar < 5 && userInfo.danStar >= 0}}">{{userInfo.danName}}</text>
+      <text class="ff-n fs-15 fc-w" wx:elif="{{userInfo.danStar == -1}}">无段位</text>
+      <view class="ff-n fs-15 fc-w challenger-desc" wx:else>
+        王者
+        <image src="/images/tier-star-full.png"></image>
+        x{{userInfo.danStar}}
+      </view>
+    </view>
+  </view>
+</view>
+<view class="championship-record bg-white">
+  <view class="championship-record-item">
+    <image src="/images/championship-icon.png"></image>
+    <view class="championship-title ff-m fs-13 fc-1">锦标赛</view>
+  </view>
+  <view class="championship-record-item">    
+      <view class="championship-stage-name ff-m fs-13 fc-1 ta-c">冠军</view>
+      <view class="championship-stage-count ff-r fs-13 fc-3 ta-c">0场</view>
+  </view>
+  <view class="championship-record-item">    
+      <view class="championship-stage-name ff-m fs-13 fc-1 ta-c">决赛</view> 
+      <view class="championship-stage-count ff-r fs-13 fc-3 ta-c">0场</view>
+  </view>
+  <view class="championship-record-item">    
+      <view class="championship-stage-name ff-m fs-13 fc-1 ta-c">八强</view>
+      <view class="championship-stage-count ff-r fs-13 fc-3 ta-c">0场</view>
+  </view>
+  <view class="championship-record-item">    
+      <view class="championship-stage-name ff-m fs-13 fc-1 ta-c">十六强</view>
+      <view class="championship-stage-count ff-r fs-13 fc-3 ta-c">0场</view>
+  </view>
+</view>
+<view class="ability-evaluate bg-white">
+  <view class="remark">
+    <image src='/images/eval-head.png'></image>
+    <view class="remark-words ff-r fs-14 fc-0">{{userInfo.evaluation}}</view>
+  </view>
+    <view class="alibilty-radar">
+    <ec-canvas id="mychart-dom-graph" canvas-id="mychart-graph" ec="{{ ec }}"></ec-canvas>
+  </view>  
+</view>
+<view class="placeholder"></view>
+<view class="stastics-table bg-white">
+  <view class="table-header table-row">
+    <view class="table-col ff-m fs-15 fc-0">比赛模式</view>
+    <view class="table-col ff-m fs-15 fc-0">总场次</view>
+    <view class="table-col ff-m fs-15 fc-0">胜利场次</view>
+    <view class="table-col ff-m fs-15 fc-0">胜率</view>
+  </view>
+  <view class="table-body table-row" wx:for='{{gameDistrib}}'  wx:key='{{item.category}}'>
+    <view class="table-col ff-r fs-13 fc-3">{{item.categoryName}}</view>
+    <view class="table-col ff-r fs-13 fc-3">{{item.totalCount}}</view>
+    <view class="table-col ff-r fs-13 fc-3">{{item.winCount}}</view>
+    <view class="table-col ff-r fs-13 fc-3">{{item.rate}}%</view>
+  </view>
+</view>
+<view class="nomore ff-r fs-13 fc-9">敬请期待</view>

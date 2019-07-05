@@ -1,0 +1,24 @@
+<!--pages/personalinfo/edit.wxml-->
+<view class="edit-row">
+  <view class="edit-row-inner">
+    <view class="title ff-r fs-17 fc-0">绑定手机</view>
+    <view class="arrow"  data-type="phone" bind:tap="showBindingDetail">
+      <view class="mobile-showbox ff-r fs-17 fc-0" wx-if="{{!!userMobile}}">
+        {{userMobile}}
+      </view>
+    <image src="/images/arrow-right.png" ></image>
+    </view>
+    
+  </view>
+</view>
+<view class="edit-row">
+  <view class="edit-row-inner">
+    <view class="title ff-r fs-17 fc-0">常用地址</view>
+    <view class="arrow" data-type="address" bind:tap="showBindingDetail">
+      <image src="/images/arrow-right.png"></image>
+    </view>
+  </view>
+</view>
+
+ <import src="../../tools/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />
